@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+
+#burger{
+    height: 200px;
+    width: 200px;
+    
+}
+
+#bdiv{
+    text-align: center;
+    display: inline-block;
+}
+
+#newbdiv{
+    text-align: center;
+    display: inline-block;
+}
