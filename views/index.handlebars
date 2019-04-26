@@ -23,8 +23,9 @@
             {{#each burgers}}
             {{#unless this.devoured}}
             <li>{{this.burger_name}}
-                <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
-                    <button type="submit" class='burgerAvailable'> Devoured</button>
+                <form>
+                    <button type="submit" data-id="{{id}}" data-neweat="{{devoured}}" 
+                    class='devoured'> Devoured</button>
                 </form>
             </li>
             {{/unless}}
@@ -34,7 +35,7 @@
         </div>
         <div class="col-md-4" id="newbdiv">
             <form>
-                <input type="text" id="name" name="burger_name" placeholder="Enter Burger Here">
+                <input type="text" id="name" placeholder="Enter Burger Here">
                 <button type="submit" class="addBurgerButton" id="addbtn">Add Burger!</button>
             </form>
         </div>
@@ -52,3 +53,7 @@
                 <input type="text" id="name" name="burger_name" placeholder="Enter Burger Here">
                 <button type="submit" class="addBurgerButton" id="addbtn">Add Burger!</button>
             </form> --}}
+
+            {{!-- form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <button type="submit" class='burgerAvailable'> Devoured</button>
+                </form> --}}

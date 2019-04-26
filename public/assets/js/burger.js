@@ -1,7 +1,8 @@
+$(function(){
 $("#addbtn").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+    
     var newBurg = {
         burger_name: $("#name").val().trim(),
       };
@@ -21,19 +22,25 @@ $("#addbtn").on("click", function(event) {
       );
     });
 
-router.put("/api/cats/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  cat.update({
-    sleepy: req.body.sleepy
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
+    $(".devoured").on("click", function(event) {
+        var id = $(this).data("id");
+        var newEat = '1';
+        console.log("VINNIE")
+    
+        var newDevoured = {
+          devoured: newEat
+        };
+    
+        // Send the PUT request.
+        $.ajax("/api/burgers/" + id, {
+          type: "PUT",
+          data: newDevoured
+        }).then(
+          function() {
+            console.log("changed sleep to", newSleep);
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+    });
