@@ -8,40 +8,47 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <h2>AWWWWW YISSSSS BURGERS!</h2>
+            <h2>Burger Menu</h2>
         </div>
         <div class="col-md-4" id="bdiv">
             <img id="burger" src="/assets/img/burger.png">
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>Devoured Burgers</h2>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-4" id="burgersdisplay">
 
             {{#each burgers}}
-             <li>{{this.burger_name}}
-                
-                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+            {{#unless this.devoured}}
+            <li>{{this.burger_name}}
+                <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
                     <button type="submit" class='burgerAvailable'> Devoured</button>
                 </form>
-   
-             </li>
-           
+            </li>
+            {{/unless}}
             {{/each}}
 
             {{!-- <h1>Placeholder for Burgers</h1> --}}
         </div>
         <div class="col-md-4" id="newbdiv">
-             <form action="/api/burgers" method="POST"></form>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" id="newbinput" placeholder="Add new burger here!">
-                        <button type="button" id="addbtn" class="btn btn-primary btn-lg">Add Burger!</button>
-                    </div>
-                </div>
+            <form>
+                <input type="text" id="name" name="burger_name" placeholder="Enter Burger Here">
+                <button type="submit" class="addBurgerButton" id="addbtn">Add Burger!</button>
             </form>
         </div>
         <div class="col-md-4">
-            <h1>Placeholder for Devoured</h1>
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <li>
+                {{this.burger_name}}
+            </li>
+            {{/if}}
+            {{/each}}
         </div>
-    </div>
+
+        {{!-- <form action="/api/burgers" method="POST">
+                <input type="text" id="name" name="burger_name" placeholder="Enter Burger Here">
+                <button type="submit" class="addBurgerButton" id="addbtn">Add Burger!</button>
+            </form> --}}
