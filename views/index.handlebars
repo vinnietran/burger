@@ -7,7 +7,9 @@
         <div class="col-md-4"></div>
     </div>
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>AWWWWW YISSSSS BURGERS!</h2>
+        </div>
         <div class="col-md-4" id="bdiv">
             <img id="burger" src="/assets/img/burger.png">
         </div>
@@ -15,14 +17,22 @@
     </div>
     <div class="row">
         <div class="col-md-4" id="burgersdisplay">
-            <ul>
-                {{#each burgers}}
-                {{/each}}
-            </ul>
-            <h1>Placeholder for Burgers</h1>
+
+            {{#each burgers}}
+             <li>{{this.burger_name}}
+                
+                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <button type="submit" class='burgerAvailable'> Devoured</button>
+                </form>
+   
+             </li>
+           
+            {{/each}}
+
+            {{!-- <h1>Placeholder for Burgers</h1> --}}
         </div>
         <div class="col-md-4" id="newbdiv">
-            <form>
+             <form action="/api/burgers" method="POST"></form>
                 <div class="form-row">
                     <div class="col">
                         <input type="text" class="form-control" id="newbinput" placeholder="Add new burger here!">
@@ -31,9 +41,7 @@
                 </div>
             </form>
         </div>
-            <div class="col-md-4">
-                <h1>Placeholder for Devoured</h1>
-            </div>
+        <div class="col-md-4">
+            <h1>Placeholder for Devoured</h1>
+        </div>
     </div>
-
-    
