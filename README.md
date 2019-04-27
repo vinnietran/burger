@@ -8,4 +8,4 @@ Please check out the working version deployed on Heroku!: https://lit-peak-29428
 
 ## Technologies Used 
 
-This app leverages Node.js and Express.js to run the backend. On the front end, I incorporated both Bootstrap and Materialize elements, along with the use of JQuery. 
+This app uses Node.js, Express, Express-Handlebars, MySQL DB, HTML, CSS, jQuery, and Javascript and is deployed using Heroku. 
